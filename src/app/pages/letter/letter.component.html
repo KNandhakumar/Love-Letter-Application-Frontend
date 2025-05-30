@@ -1,25 +1,25 @@
 <div class="min-h-screen bg-emerald-100 flex items-center justify-center p-4">
-    <form class="bg-white p-6 rounded-xl shadow-lg w-full max-w-md space-y-4">
+    <form (ngSubmit)="submitLetter()" class="bg-white p-6 rounded-xl shadow-lg w-full max-w-md space-y-4">
         <h2 class="text-2xl font-bold text-center text-emerald-700">Send a Love Letter</h2>
 
         <div>
             <label class="block text-sm font-medium">To Whom</label>
-            <input type="text" name="toWhom" class="w-full p-2 border rounded-md mt-1 focus outline-none">
+            <input type="text" name="toWhom" [(ngModel)]="letter.toWhom" class="w-full p-2 border rounded-md mt-1 focus outline-none">
         </div>
 
          <div>
             <label class="block text-sm font-medium">From Whom</label>
-            <input type="text" name="fromWhom" class="w-full p-2 border rounded-md mt-1 focus outline-none">
+            <input type="text" name="fromWhom" [(ngModel)]="letter.fromWhom" class="w-full p-2 border rounded-md mt-1 focus outline-none">
         </div>
 
         <div>
             <label class="block text-sm font-medium">Message</label>
-            <textarea name="message" class="w-full p-2 border rounded-md mt-1"></textarea>
+            <textarea name="message" [(ngModel)]="letter.message" class="w-full p-2 border rounded-md mt-1"></textarea>
         </div>
 
         <div>
             <label class="block text-sm font-medium">Date</label>
-            <input type="date" name="date" class="w-full p-2 border rounded-md mt-1 focus outline-none">
+            <input type="date" name="date" [(ngModel)]="letter.date" class="w-full p-2 border rounded-md mt-1 focus outline-none">
         </div>
 
         <button type="submit" class="w-full bg-emerald-600 text-white py-2 rounded-md cursor-pointer hover:bg-sky-700">Send Letter</button>
