@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-emerald-100 flex items-center justify-center p-4">
+<!-- <div class="min-h-screen bg-emerald-100 flex items-center justify-center p-4">
     <form (ngSubmit)="submitLetter()" class="bg-white p-6 rounded-xl shadow-lg w-full max-w-md space-y-4">
         <h2 class="text-2xl font-bold text-center text-emerald-700">Send a Love Letter</h2>
 
@@ -24,7 +24,7 @@
 
         <button type="submit" class="w-full bg-emerald-600 text-white py-2 rounded-md cursor-pointer hover:bg-sky-700">Send Letter</button>
     </form>
-</div>
+</div> -->
 
  <!-- List all letters -->
     <div class="min-h-screen bg-green-50 py-8 px-4">
@@ -46,6 +46,36 @@
       <div class="text-sm text-right text-gray-500">
         Date : {{ letter.date }}
       </div>
+
+      <!-- Edit -->
+       <div class="flex justify-end space-x-2 mt-4">
+        <button (click)="editLetter(letter)" class="bg-yellow-500 text-white px-3 rounded hover:bg-yellow-600 cursor-pointer">Edit</button>
+       </div>
     </div>
+
+    <!-- Edit form -->
+     <div *ngIf="selectedLetter" class="max-w-xl mx-auto mt-8 bg-white p-6 rounded shadow">
+        <h3 class="text-xl font-bold mb-4 text-emerald-600 text-center">Edit Love Letter</h3>
+
+        <!-- ToWhom -->
+        <label class="block mb-2">ToWhom</label>
+        <input [(ngModel)]="selectedLetter.toWhom" type="text" class="w-full p-2 mb-4 border rounded focus:outline-none">
+
+        <!-- FromWhom -->
+        <label class="block mb-2">FromWhom</label>
+        <input [(ngModel)]="selectedLetter.fromWhom" type="text" class="w-full p-2 mb-4 border rounded focus:outline-none">
+
+        <!-- Message -->
+        <label class="block mb-2">Message</label>
+        <textarea [(ngModel)]="selectedLetter.message" name="message" class="w-full p-2 mb-4 border rounded focus:outline-none"></textarea>
+
+        <!-- Update button -->
+        <div class="flex justify-end space-x-3">
+        <button (click)="updateLetter()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Update</button>
+            
+        <!-- Cancel button -->
+        <button (click)="cancellEdit()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-gray-500">Cancel</button>
+        </div>
+     </div>
   </div>
 </div>

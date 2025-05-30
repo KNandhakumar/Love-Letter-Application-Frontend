@@ -39,4 +39,22 @@ export class LetterComponent implements OnInit {
         this.letters = data;
       })
   }
+
+  // edit letter
+  selectedLetter?:Letter | null;
+  editLetter(letter:any){
+    this.selectedLetter = {...letter }; // copy
+  }
+  // cancel edit
+  cancellEdit(){
+    this.selectedLetter = null;
+  }
+
+  // update letter
+  updateLetter(){
+    this.letterService.updateLetter(this.selectedLetter?.id,this.selectedLetter).subscribe(() => {
+      this.ngOnInit(); // refresh list
+      this.selectedLetter = null; // close form
+    })
+  }
 }
