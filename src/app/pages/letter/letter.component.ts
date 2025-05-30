@@ -23,6 +23,12 @@ export class LetterComponent {
   submitLetter(){
     this.letterService.sendLetter(this.letter).subscribe((responce) => {
       console.log('Letter send successfully!',responce);
+      this.letter = {
+        toWhom: '',
+        fromWhom: '',
+        message: '',
+        date: ''
+      }
     })
   }
 }
