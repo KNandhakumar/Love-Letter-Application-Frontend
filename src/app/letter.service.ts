@@ -15,4 +15,8 @@ export class LetterService {
   sendLetter(letter:Letter):Observable<Letter>{
     return this.http.post<Letter>(this.apiUrl,letter);
   }
+  // get all letters
+  getAllLetter():Observable<Letter[]>{
+    return this.http.get<Letter[]>(this.apiUrl);
+  }
 }
