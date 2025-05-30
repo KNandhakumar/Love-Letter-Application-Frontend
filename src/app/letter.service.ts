@@ -19,4 +19,8 @@ export class LetterService {
   getAllLetter():Observable<Letter[]>{
     return this.http.get<Letter[]>(this.apiUrl);
   }
+  // update letter
+  updateLetter(id:number,updatedLetter:Letter):Observable<Letter>{
+    return this.http.put<Letter>(`${this.apiUrl}/${id}`,updatedLetter);
+  }
 }
