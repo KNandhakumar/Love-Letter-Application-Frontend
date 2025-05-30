@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { Letter } from '../../letter.model';
+import { LetterService } from '../../letter.service';
 
 @Component({
   selector: 'app-letter',
@@ -10,6 +11,7 @@ import { Letter } from '../../letter.model';
   styleUrl: './letter.component.css'
 })
 export class LetterComponent {
+  constructor(private letterService:LetterService){}
   // send letter
   letter:Letter = {
     toWhom: '',
@@ -19,6 +21,8 @@ export class LetterComponent {
   }
 
   submitLetter(){
-    console.log("letter submitted",this.letter);
+    this.letterService.sendLetter(this.letter).subscribe((responce) => {
+      console.log('Letter send successfully!',responce);
+    })
   }
 }
