@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { Letter } from '../../letter.model';
 import { LetterService } from '../../letter.service';
@@ -10,7 +10,7 @@ import { LetterService } from '../../letter.service';
   templateUrl: './letter.component.html',
   styleUrl: './letter.component.css'
 })
-export class LetterComponent {
+export class LetterComponent implements OnInit {
   constructor(private letterService:LetterService){}
   // send letter
   letter:Letter = {
@@ -30,5 +30,13 @@ export class LetterComponent {
         date: ''
       }
     })
+  }
+
+  // get all letters
+  letters:Letter[] = [];
+  ngOnInit(): void {
+      this.letterService.getAllLetter().subscribe((data) => {
+        this.letters = data;
+      })
   }
 }
