@@ -12,6 +12,15 @@ import { LetterService } from '../../letter.service';
 })
 export class LetterComponent implements OnInit {
   constructor(private letterService:LetterService){}
+
+  // get all letters
+  letters:Letter[] = [];
+  ngOnInit(): void {
+      this.letterService.getAllLetter().subscribe((data) => {
+        this.letters = data;
+      })
+  }
+
   // send letter
   letter:Letter = {
     toWhom: '',
@@ -29,15 +38,8 @@ export class LetterComponent implements OnInit {
         message: '',
         date: ''
       }
+      this.ngOnInit(); // refresh list
     })
-  }
-
-  // get all letters
-  letters:Letter[] = [];
-  ngOnInit(): void {
-      this.letterService.getAllLetter().subscribe((data) => {
-        this.letters = data;
-      })
   }
 
   // edit letter
