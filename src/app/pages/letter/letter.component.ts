@@ -32,6 +32,7 @@ export class LetterComponent implements OnInit {
   submitLetter(){
     this.letterService.sendLetter(this.letter).subscribe((responce) => {
       console.log('Letter send successfully!',responce);
+      alert('Letter sent successfully')
       this.letter = {
         toWhom: '',
         fromWhom: '',
@@ -55,6 +56,7 @@ export class LetterComponent implements OnInit {
   // update letter
   updateLetter(){
     this.letterService.updateLetter(this.selectedLetter!.id!,this.selectedLetter!).subscribe(() => {
+      alert('Letter updated successfully')
       this.ngOnInit(); // refresh list
       this.selectedLetter = null; // close form
     })
@@ -63,6 +65,7 @@ export class LetterComponent implements OnInit {
   // delete letter
   deleteLetter(id:number){
     if(confirm('Are you sure, you want to delete this Love letter? 💔')){
+      alert('Letter deleted successfully')
       this.letterService.deleteLetter(id).subscribe(() => {
         this.ngOnInit(); // refresh list
       })
