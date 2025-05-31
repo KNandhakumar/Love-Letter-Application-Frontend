@@ -4,11 +4,10 @@ import { FormsModule } from '@angular/forms'
 import { Letter } from '../../letter.model';
 import { LetterService } from '../../letter.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-letter',
-  imports: [CommonModule,FormsModule,ToastrModule,BrowserAnimationsModule],
+  imports: [CommonModule,FormsModule,ToastrModule],
   templateUrl: './letter.component.html',
   styleUrl: './letter.component.css'
 })
@@ -31,17 +30,26 @@ export class LetterComponent implements OnInit {
     date: ''
   }
 
-  submitLetter(){
-    this.letterService.sendLetter(this.letter).subscribe((responce) => {
-      console.log('Letter send successfully!',responce);
+  submitLetter() {
+  this.letterService.sendLetter(this.letter).subscribe({
+    next: (response) => {
+      this.toastr.success('Letter sent successfully!', 'Success 💖');
+      console.log('Letter sent successfully!', response);
       this.letter = {
         toWhom: '',
         fromWhom: '',
         message: '',
         date: ''
-      }
-    })
-  }
+      };
+      this.ngOnInit(); // refresh letters
+    },
+    error: (error) => {
+      this.toastr.error('Failed to send letter', 'Error 😢');
+      console.error(error);
+    }
+  });
+}
+
 
   // edit letter
   selectedLetter?:Letter | null;
