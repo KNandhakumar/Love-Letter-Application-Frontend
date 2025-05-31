@@ -14,6 +14,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 })
 export class LetterComponent implements OnInit {
   constructor(private letterService:LetterService,private toastr:ToastrService){}
+
+  // get all letters
+  letters:Letter[] = [];
+  ngOnInit(): void {
+      this.letterService.getAllLetter().subscribe((data) => {
+        this.letters = data;
+      })
+  }
+
   // send letter
   letter:Letter = {
     toWhom: '',
@@ -32,14 +41,6 @@ export class LetterComponent implements OnInit {
         date: ''
       }
     })
-  }
-
-  // get all letters
-  letters:Letter[] = [];
-  ngOnInit(): void {
-      this.letterService.getAllLetter().subscribe((data) => {
-        this.letters = data;
-      })
   }
 
   // edit letter
