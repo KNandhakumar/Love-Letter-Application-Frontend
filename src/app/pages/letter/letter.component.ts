@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { Letter } from '../../letter.model';
 import { LetterService } from '../../letter.service';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   styleUrl: './letter.component.css'
 })
 export class LetterComponent implements OnInit {
-  constructor(private letterService:LetterService){}
+  constructor(private letterService:LetterService,private toastr:ToastrService){}
   // send letter
   letter:Letter = {
     toWhom: '',
