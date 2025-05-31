@@ -3,10 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { Letter } from '../../letter.model';
 import { LetterService } from '../../letter.service';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-letter',
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,FormsModule,ToastrModule,BrowserAnimationsModule],
   templateUrl: './letter.component.html',
   styleUrl: './letter.component.css'
 })
