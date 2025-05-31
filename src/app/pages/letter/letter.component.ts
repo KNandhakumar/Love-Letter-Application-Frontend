@@ -57,4 +57,13 @@ export class LetterComponent implements OnInit {
       this.selectedLetter = null; // close form
     })
   }
+
+  // delete letter
+  deleteLetter(id:number){
+    if(confirm('Are you sure, you want to delete this Love letter? 💔')){
+      this.letterService.deleteLetter(id).subscribe(() => {
+        this.ngOnInit(); // refresh list
+      })
+    }
+  }
 }
