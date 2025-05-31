@@ -23,4 +23,8 @@ export class LetterService {
   updateLetter(id:number,updatedLetter:Letter):Observable<Letter>{
     return this.http.put<Letter>(`${this.apiUrl}/${id}`,updatedLetter);
   }
+  //delete letter
+  deleteLetter(id:number):Observable<void>{
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
