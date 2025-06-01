@@ -6,5 +6,6 @@ import { LoginComponent } from './pages/login/login.component';
 export const routes: Routes = [
     {path : 'letter', component : LetterComponent},
     {path : 'register', component : RegisterComponent},
-    {path : 'login', component : LoginComponent}
+    {path : 'login', component : LoginComponent},
+    {path : '', redirectTo : '/login', pathMatch : 'full'} // login page show in home page
 ];
