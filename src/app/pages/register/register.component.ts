@@ -1,10 +1,11 @@
 import { LetterService } from './../../letter.service';
 import { Component } from '@angular/core';
 import { Register } from '../../model/auth/register.model';
+import { FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-register',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
