@@ -1,4 +1,6 @@
+import { LetterService } from './../../letter.service';
 import { Component } from '@angular/core';
+import { Register } from '../../model/auth/register.model';
 
 @Component({
   selector: 'app-register',
@@ -8,4 +10,19 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
 
+  constructor(private letterService:LetterService){}
+
+  
+  // user register
+  registerData:Register = {
+    name: '',
+    email: '',
+    password: ''
+  }
+  userRegister(){
+    this.letterService.userRegister(this.registerData).subscribe((responce) =>{
+      console.log('Register successfully!',responce);
+      alert('Register successful!');
+    })
+  }
 }
