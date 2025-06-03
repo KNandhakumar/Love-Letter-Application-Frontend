@@ -25,3 +25,61 @@
         <button type="submit" class="w-full bg-emerald-600 text-white py-2 rounded-md cursor-pointer hover:bg-sky-700">Send Letter</button>
     </form>
 </div>
+
+ <!-- List all letters -->
+    <div class="min-h-screen bg-green-50 py-8 px-4">
+  <h2 class="text-3xl font-bold mb-8 text-center text-emerald-700">All Love Letters 💚</h2>
+
+  <div class="space-y-6 max-w-2xl mx-auto">
+    <div *ngFor="let letter of letters" class="bg-white rounded-xl shadow-md border-l-4 border-emerald-500 p-5">
+      <div class="mb-2">
+        <span class="font-semibold text-emerald-600">ToWhom :</span>
+        <span class="text-gray-700">{{ letter.toWhom }}</span>
+      </div>
+      <div class="mb-2">
+        <span class="font-semibold text-emerald-600">FromWhom :</span>
+        <span class="text-gray-700">{{ letter.fromWhom }}</span>
+      </div>
+      <div class="mb-3">
+        <p class="text-gray-800 italic">"{{ letter.message }}"</p>
+      </div>
+      <div class="text-sm text-right text-gray-500">
+        Date : {{ letter.date }}
+      </div>
+
+      <!-- Edit -->
+       <div class="flex justify-end space-x-2 mt-4">
+        <button (click)="editLetter(letter)" class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 cursor-pointer">Edit Letter</button>
+       </div>
+
+       
+       <!-- Delete -->
+        <button (click)="deleteLetter(letter.id!)" class="bg-red-500 cursor-pointer text-white px-3 py-1 rounded hover:bg-red-600">Delete</button>
+    </div>
+
+    <!-- Edit form -->
+     <div *ngIf="selectedLetter" class="max-w-xl mx-auto mt-8 bg-white p-6 rounded shadow">
+        <h3 class="text-xl font-bold mb-4 text-emerald-600 text-center">Edit Love Letter</h3>
+
+        <!-- ToWhom -->
+        <label class="block mb-2">ToWhom</label>
+        <input [(ngModel)]="selectedLetter.toWhom" type="text" class="w-full p-2 mb-4 border rounded focus:outline-none">
+
+        <!-- FromWhom -->
+        <label class="block mb-2">FromWhom</label>
+        <input [(ngModel)]="selectedLetter.fromWhom" type="text" class="w-full p-2 mb-4 border rounded focus:outline-none">
+
+        <!-- Message -->
+        <label class="block mb-2">Message</label>
+        <textarea [(ngModel)]="selectedLetter.message" name="message" class="w-full p-2 mb-4 border rounded focus:outline-none"></textarea>
+
+        <!-- Update button -->
+        <div class="flex justify-end space-x-3">
+        <button (click)="updateLetter()" class="cursor-pointer bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Update</button>
+            
+        <!-- Cancel button -->
+        <button (click)="cancellEdit()" class="cursor-pointer bg-red-500 text-white px-4 py-2 rounded hover:bg-gray-500">Cancel</button>
+        </div>
+     </div>
+  </div>
+</div>
