@@ -3,4 +3,7 @@ import { LetterComponent } from './pages/letter/letter.component';
 
 export const routes: Routes = [
     {path : 'letter', component : LetterComponent},
+    {path : 'register', component : RegisterComponent},
+    {path : 'login', component : LoginComponent},
+    {path : '', redirectTo : '/login', pathMatch : 'full'} // login page show in home page
 ];
