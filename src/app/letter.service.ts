@@ -1,3 +1,4 @@
+import { Register } from './model/auth/register.model';
 import { Letter } from './letter.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -10,7 +11,8 @@ export class LetterService {
   constructor(private http:HttpClient) { }
   // api url
   private apiUrl = 'http://localhost:8080/api/letters';
-
+  // user register api url
+  private registerApi = 'http://localhost:8080/auth/register';
   // send letter
   sendLetter(letter:Letter):Observable<Letter>{
     return this.http.post<Letter>(this.apiUrl,letter);
@@ -26,5 +28,9 @@ export class LetterService {
   //delete letter
   deleteLetter(id:number):Observable<void>{
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+  // user register
+  userRegister(userData:Register):Observable<Register>{
+    return this.http.post<Register>(this.registerApi,userData);
   }
 }
