@@ -1,59 +1,59 @@
-# LoveLetterUi
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
+---
 
-## Development server
+## 📁 Love Letter App – Frontend (Angular + Tailwind CSS)
 
-To start a local development server, run:
+> `README.md` for **Frontend Repository**
+
+```markdown
+# 💌 Love Letter App - Frontend (Angular + Tailwind CSS)
+
+A modern and responsive Angular application for sending and viewing love letters. Styled with Tailwind CSS for a smooth and romantic UI. ✨
+
+## 💚 Features
+
+- 💖 Add a new love letter
+- 📝 View all love letters in elegant cards
+- 🧹 Delete letter (when needed)
+- 🌈 Fully responsive with Tailwind
+- 🔗 Connected with Spring Boot backend
+
+## 🔧 Tech Stack
+
+- Angular 17+
+- Tailwind CSS
+- TypeScript
+- Angular Services & Routing
+- HTTPClient Module
+
+## 📁 Folder Overview
+
+```text
+src/
+├── app/
+│ ├── components/
+│ ├── services/
+│ ├── models/
+
+## ⚙️ How to Run
 
 ```bash
+# Clone the repo
+git clone https://github.com/yourusername/love-letter-frontend.git
+cd love-letter-frontend
+
+# Install dependencies
+npm install
+
+# Run app
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+❤️ Made with Love by Nandhakumar
 
-## Code scaffolding
+Every UI element, every animation is coded with real love and emotion 💚.
+For someone special… maybe M 💫
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+📢 Special Thanks
+To the one who inspired me to build this – someday you may read this… 🥹💞
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
