@@ -1,6 +1,4 @@
 
----
-
 ## 📁 Love Letter App – Frontend (Angular + Tailwind CSS)
 
 > `README.md` for **Frontend Repository**
