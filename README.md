@@ -49,7 +49,7 @@ ng serve
 ❤️ Made with Love by Nandhakumar
 
 Every UI element, every animation is coded with real love and emotion 💚.
-For someone special… maybe M 💫
+For someone special… must be M 💫💑
 
 📢 Special Thanks
 To the one who inspired me to build this – someday you may read this… 🥹💞
